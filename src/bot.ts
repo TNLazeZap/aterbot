@@ -1,6 +1,11 @@
 import Mineflayer from 'mineflayer';
+import type { Vec3 } from 'vec3';
 import { sleep, getRandom } from "./utils.ts";
-import CONFIG from "../config.json" assert {type: 'json'};
+import fs from 'fs';
+import path from 'path';
+
+const configPath = path.resolve(process.cwd(), 'config.json');
+const CONFIG = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
 
 let loop: NodeJS.Timeout;
 let bot: Mineflayer.Bot;
